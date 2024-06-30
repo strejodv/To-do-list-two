@@ -3,30 +3,44 @@ import { useState } from 'react'
 
 function App() {
 
-  const [userInput, setUserInput] = useState("Your future daily goals will show here!")
+  const [userInput, setUserInput] = useState("")
+  const [items, setItems] = useState([]);
   
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && e.target.value.trim() !== '') {
-      setUserInput(e.target.value.trim());
-      e.target.value = '';
-    }
-  };
+      setItems([...items, e.target.value.trim()]);
+      setUserInput('');
+  }
+};
 
-  return (
-    <>
-     <div className="wrapper">
-        <div className="input-wrap">
-          <h1>Stop Slacking List</h1>
-            <input className="user-input"  onKeyDown={handleKeyPress} input type="text" placeholder="What are your goals today?" id="username" name="username" required></input>
-              <ul className="the-list">
-                <li>
-                  {userInput}
-                </li>
-              </ul>
-        </div>                              
-     </div>
-    </>
-  )
+  const handleInputChange = (e) => {
+    setUserInput(e.target.value);
+};
+
+    return (
+      <>
+            <div className="wrapper">
+                <div className="input-wrap">
+                    <h1>Stop Slacking List</h1>
+                    <input
+                        className="user-input"
+                        type="text"
+                        placeholder="What are your goals today?"
+                        value={userInput}
+                        onChange={handleInputChange}
+                        onKeyDown={handleKeyPress}
+                    />
+                    <ul className="the-list">
+                        {items.map((item, index) => (
+                            <li key={index}><span className="span-list">{item}</span>
+                            <button className="list-button">Unfinished</button></li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </>
+    );
 }
+
 
 export default App
