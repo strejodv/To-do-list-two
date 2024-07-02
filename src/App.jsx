@@ -20,24 +20,23 @@ function App() {
     return (
       <>
             <div className="wrapper">
-                <div className="input-wrap">
                     <h1>Stop Slacking List</h1>
-                    <input
+                        <input
                         className="user-input"
                         type="text"
                         placeholder="What are your goals today?"
                         value={userInput}
                         onChange={handleInputChange}
                         onKeyDown={handleKeyPress}
-                    />
-                    <ul className="the-list">
-                        {items.map((item, index) => (
-                            <li key={index}><span className="span-list">{item}</span>
-                            <button className="list-button">Unfinished</button></li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
+                        />
+                            <div className="list-wrapper">
+                                <ul className="the-list">
+                                    {items.map((item, index) => (
+                                    <li key={index}><span className="span-list">{item}</span>
+                                    <button className="list-button">Unfinished</button></li>
+                                    ))}
+                                </ul>
+            </div>          </div>
         </>
     );
 }
