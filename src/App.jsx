@@ -5,6 +5,9 @@ function App() {
 
   const [userInput, setUserInput] = useState("")
   const [items, setItems] = useState([]);
+  const [buttonsText, setButtonsText] = useState('Incomplete')
+  const [done, setDone] = useState(false)
+
   
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && e.target.value.trim() !== '') {
@@ -16,6 +19,11 @@ function App() {
   const handleInputChange = (e) => {
     setUserInput(e.target.value);
 };
+
+  const buttonClick = () => {
+    setButtonsText('Done')
+    setDone(!done);
+  };
 
     return (
       <>
@@ -33,10 +41,11 @@ function App() {
                                 <ul className="the-list">
                                     {items.map((item, index) => (
                                     <li key={index}><span className="span-list">{item}</span>
-                                    <button className="list-button">Unfinished</button></li>
+                                    <button className={`list-button ${done ? 'list-button-done' : 'list-button-unfinished'}`} onClick={buttonClick}>{done ? 'Done' : 'Unfinished'}</button></li>
                                     ))}
                                 </ul>
-            </div>          </div>
+                            </div>
+            </div>          
         </>
     );
 }

@@ -83,13 +83,23 @@ h1 {
   font-size: 8px;
   color: rgb(18, 0, 66);
   border-radius: 5px;
-  background-color: rgb(211, 82, 7);
+  cursor: pointer;
   border: none;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-right: 6px;
   padding-left: 6px;
   margin-left: 10px; 
+}
+
+.list-button-unfinished {
+  background-color: rgb(231, 31, 4);
+  color: white;
+}
+
+.list-button-done {
+  background-color: rgb(112, 218, 13);
+  color: white;
 }
 
 /* the media queries*/
