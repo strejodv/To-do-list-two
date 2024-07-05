@@ -41,7 +41,7 @@ h1 {
 
 .user-input::placeholder {
   text-align: left;
-  font-size: 16px;
+  font-size: 13px;
   color: rgb(46, 46, 46);
   font-weight: 500;
 }
@@ -102,6 +102,19 @@ h1 {
   color: white;
 }
 
+.button-delete {
+  font-size: 8px;
+  color: rgb(18, 0, 66);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 6px;
+  padding-left: 6px;
+  margin-left: 10px; 
+}
+
 /* the media queries*/
 
 @media (max-width: 600px) {
@@ -117,5 +130,21 @@ h1 {
   .list-button {
     font-size: 10px;
     padding: 5px;
+    margin: 0;
   }
+
+  .the-list {
+    width: 100%;
+  }
+
+  .the-list li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;  
+  }
+
 }
+
+
+
+

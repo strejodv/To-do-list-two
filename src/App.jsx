@@ -25,6 +25,10 @@ function App() {
     setDone(!done);
   };
 
+  const delButtonClick = (index) => {
+    setItems(prevItems => prevItems.filter((_, i) => i !== index));
+  };
+
     return (
       <>
             <div className="wrapper">
@@ -41,7 +45,8 @@ function App() {
                                 <ul className="the-list">
                                     {items.map((item, index) => (
                                     <li key={index}><span className="span-list">{item}</span>
-                                    <button className={`list-button ${done ? 'list-button-done' : 'list-button-unfinished'}`} onClick={buttonClick}>{done ? 'Done' : 'Unfinished'}</button></li>
+                                    <button className={`list-button ${done ? 'list-button-done' : 'list-button-unfinished'}`} onClick={buttonClick}>{done ? 'Done' : 'Unfinished'}</button>
+                                    <button className="button-delete" onClick={() => delButtonClick(index)}>Del</button></li>
                                     ))}
                                 </ul>
                             </div>
